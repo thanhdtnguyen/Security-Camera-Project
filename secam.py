@@ -1,8 +1,9 @@
-# Mac: import cv2 for camera and pygame for alert sound
-# Windows: import cv2 for camera and winsound for alert sound
+# Mac: import pygame for alert sound
+# Windows: import winsound for alert sound
 
 import cv2
 import pygame
+import datetime as dt
 
 # set alert sound effect for the secam
 
@@ -34,9 +35,11 @@ while camera.isOpened():
         beep_sound.play()
 
         # capture images of the thief
+
         return_val, image = camera.read()
-        cv2.imwrite('catch' + str(img + 1) + '.png', image)
+        cv2.imwrite('catch' + str(img + 1) + ' at ' + str(dt.datetime.now()) + '.jpeg', image)
         img += 1
-    if cv2.waitKey(10) == ord('q'):
+
+    if cv2.waitKey(10) == ord('q'):  # press q to exit
         break
     cv2.imshow('My Secam', frame1)
