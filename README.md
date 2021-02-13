@@ -1,1 +1,3 @@
-# security-camera-project
+# Security Camera Project
+
+(details to be updated)
